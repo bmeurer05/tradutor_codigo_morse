@@ -38,8 +38,6 @@ public class UI extends JFrame {
 	
 	private JTextPane textToMorseTextField;
 	
-	private JButton translateMorseButton;
-	
 	private JButton translateTextButton;
 	
 	public UI() {
@@ -62,19 +60,9 @@ public class UI extends JFrame {
 		title.setBounds(120, 10, 245, 38);
 		
 		
-		
-		translateMorseButton = new JButton("Translate Morse");
-		translateMorseButton.setBounds(250, 250, BUTTON_WIDTH, BUTTON_HEIGHT);
-		translateMorseButton.setBackground(Color.white); 
-		translateMorseButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				morseTranslator = new MorseTranslator();
-				textToMorseTextField.setText(morseTranslator.translateTextToMorse(morseToTextTextField.getText()));
-			}
-		});
-		
+
 		translateTextButton = new JButton("Translate Text");
-		translateTextButton.setBounds(80, 250, BUTTON_WIDTH, BUTTON_HEIGHT);
+		translateTextButton.setBounds(165, 250, BUTTON_WIDTH, BUTTON_HEIGHT);
 		translateTextButton.setBackground(Color.white);
 		translateTextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -90,11 +78,11 @@ public class UI extends JFrame {
 		setTitle("Morse Translator");
 		setIconImage(getImage("res/networkGlobeIcon.png"));
 		setLayout(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		
 		this.add(morseToTextTextField);
 		this.add(textToMorseTextField);
-		this.add(translateMorseButton);
 		this.add(translateTextButton);
 		this.add(title);
 	}
